@@ -13,6 +13,7 @@
 # SQL server files
 *.mdf
 *.ldf
+*slnx.sqlite
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
