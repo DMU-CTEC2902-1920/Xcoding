@@ -29,7 +29,7 @@ namespace FullMVCProjectNew.Models
             game1.Price = 0;
             game1.AgeRating = "12+";
             game1.DateReleased = Convert.ToDateTime("27/10/2009");
-            game1.TrailerURL = "https://youtu.be/ggVB9gzwRIw";
+            game1.TrailerURL = "https://www.youtube.com/embed/7O21Z6vgtmY";
             game1.ImageSRC = "https://www.riotgames.com/darkroom/800/da85e92aaf87f26181ded41afe03b1dc:aaeeccb4b282b616ef907ec68c40f2b7/lol-logo-rendered-hi-res.png";
             game1.Genre = genre1;
             game1.GenreID = 1;
@@ -42,7 +42,7 @@ namespace FullMVCProjectNew.Models
             game2.Price = 0;
             game2.AgeRating = "18+";
             game2.DateReleased = Convert.ToDateTime("21/08/2012");
-            game2.TrailerURL = "https://youtu.be/edYCtaNueQY";
+            game2.TrailerURL = "https://www.youtube.com/embed/edYCtaNueQY";
             game2.ImageSRC = "https://i.dlpng.com/static/png/6628007_preview.png";
             game2.Genre = genre2;
             game2.GenreID = 2;
