@@ -15,12 +15,12 @@ namespace FullMVCProjectNew.Models
         public virtual string Description { get; set; }
         public decimal Price { get; set; }
         public virtual string AgeRating { get; set; }
-        public virtual int Score { get; set; }
-        public virtual string DateReleased { get; set; }
-        public virtual string TrailerEmbed { get; set; }
+        public virtual DateTime DateReleased { get; set; }
+        public virtual string TrailerURL { get; set; }
         public string ImageSRC { get; set; }
         //declare genre foreign key
-        public virtual int GenreID { get; set; }
         public virtual AnGenre Genre { get; set; }
+        public virtual int GenreID { get; set; }
+        
     }
 }
