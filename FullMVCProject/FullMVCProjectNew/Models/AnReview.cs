@@ -12,11 +12,12 @@ namespace FullMVCProjectNew.Models
         public virtual string Score { get; set; }
 
         //declare game foreign key
-        public virtual int GameID { get; set; }
         public virtual AnGame Game { get; set; }
+        public virtual int GameID { get; set; }
         //declare user foreign key
-        public virtual int UserID { get; set; }
         public virtual AnUser User { get; set; }
+        public virtual int UserID { get; set; }
+        
         
     }
 }
