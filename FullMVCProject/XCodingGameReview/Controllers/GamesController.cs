@@ -15,8 +15,20 @@ namespace XCodingGameReview.Controllers
         private GameContext db = new GameContext();
 
         // GET: Games
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
+            if (id != null)
+            {
+                DeveloperContext DeveloperDB = new DeveloperContext();
+                Developer developer = DeveloperDB.Developers.Find(id);
+                ViewData["id"] = id;
+                ViewData["name"] = developer.Name;
+                ViewData["description"] = developer.Description;
+            }
+            else
+            {
+                ViewData["id"] = null;
+            }
             return View(db.Games.ToList());
         }
 
@@ -36,8 +48,9 @@ namespace XCodingGameReview.Controllers
         }
 
         // GET: Games/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            ViewData["id"] = id;
             return View();
         }
 
@@ -50,6 +63,7 @@ namespace XCodingGameReview.Controllers
         {
             if (ModelState.IsValid)
             {
+                game.DeveloperID = Convert.ToInt32(TempData["id"]);
                 db.Games.Add(game);
                 db.SaveChanges();
                 return RedirectToAction("Index");

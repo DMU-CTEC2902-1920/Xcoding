@@ -35,8 +35,9 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.DeveloperID }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Edit", "Edit", new { id = Model.DeveloperID }); |
+        @Html.ActionLink("Back to List", "Index"); |
+        @Html.ActionLink("Games Made", "../Games/Index", new { id = Model.DeveloperID });
     </p>
 </body>
 </html>

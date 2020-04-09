@@ -1,7 +1,7 @@
 ﻿@model XCodingGameReview.Models.Game
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Game Details";
 }
 
 <!DOCTYPE html>
@@ -13,62 +13,44 @@
 </head>
 <body>
     <div>
-        <h4>Game</h4>
+        <h4>Game Details</h4>
         <hr />
         <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.DeveloperID)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.DeveloperID)
-            </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Name)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Genre)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Genre)
             </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.ReleaseDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Trailer)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Trailer)
-            </dd>
-    
+
+
+
+
             <dt>
                 @Html.DisplayNameFor(model => model.Image)
             </dt>
-    
+
             <dd>
-                @Html.DisplayFor(model => model.Image)
+                <img src="@Html.DisplayFor(model => model.Image)" alt="GameIMG" height="100" width="100">
             </dd>
-    
+
         </dl>
+        <iframe width="560" height="315" src="@Html.DisplayFor(model => model.Trailer)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.GameID }) |
         @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Reviews", "../Reviews/Index", new { id = Model.GameID })
     </p>
 </body>
 </html>
