@@ -15,8 +15,18 @@ namespace XCodingGameReview.Controllers
         private ReviewContext db = new ReviewContext();
 
         // GET: Reviews
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
+            if (id != null)
+            {
+                GameContext GameDB = new GameContext();
+                Game game = GameDB.Games.Find(id);
+                ViewData["id"] = id;
+            }
+            else
+            {
+                ViewData["id"] = null;
+            }
             return View(db.Reviews.ToList());
         }
 
@@ -36,8 +46,13 @@ namespace XCodingGameReview.Controllers
         }
 
         // GET: Reviews/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            ViewData["id"] = id;
+            GameContext GameDB = new GameContext();
+            Game game = GameDB.Games.Find(id);
+            ViewData["id"] = id;
+
             return View();
         }
 
@@ -50,6 +65,7 @@ namespace XCodingGameReview.Controllers
         {
             if (ModelState.IsValid)
             {
+                review.GameID = Convert.ToInt32(TempData["GameID"]);
                 db.Reviews.Add(review);
                 db.SaveChanges();
                 return RedirectToAction("Index");

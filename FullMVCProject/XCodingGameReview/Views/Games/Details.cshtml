@@ -34,8 +34,6 @@
             </dd>
 
 
-
-
             <dt>
                 @Html.DisplayNameFor(model => model.Image)
             </dt>
@@ -49,7 +47,7 @@
     </div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.GameID }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Back to List", "Index") |
         @Html.ActionLink("Reviews", "../Reviews/Index", new { id = Model.GameID })
     </p>
 </body>

@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Index";
+    int x = Convert.ToInt32(TempData["GameID"]);
+    
 }
 
 <!DOCTYPE html>
@@ -12,48 +14,55 @@
     <title>Index</title>
 </head>
 <body>
+
     <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.GameID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Score)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GameID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Score)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ReviewID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ReviewID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ReviewID })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
+        @{
+            if (ViewData["id"] == null)
+            {
+            <p><a class="btn btn-default" href="../Games/Index/">To add a review, select a game &raquo;</a></p>
+        }
+        else
+        {
+            @Html.ActionLink("Add review for this game", "Create", new { id = ViewData["id"] });
+        }
+        }
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Score)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                if (item.GameID == Convert.ToInt32(ViewData["id"]) || ViewData["id"] == null)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Score)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID })
+                        </td>
+                    </tr>
+                }
+            }
+
+        </table>
+    </body>
 </html>
