@@ -1,0 +1,54 @@
+﻿@model XCodingGameReview.Models.Game
+
+@{
+    ViewBag.Title = "Game Details";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Game Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Genre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Genre)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                <img src="@Html.DisplayFor(model => model.Image)" alt="GameIMG" height="100" width="100">
+            </dd>
+
+        </dl>
+        <iframe width="560" height="315" src="@Html.DisplayFor(model => model.Trailer)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.GameID }) |
+        @Html.ActionLink("Back to List", "Index") |
+        @Html.ActionLink("Reviews", "../Reviews/Index", new { id = Model.GameID })
+    </p>
+</body>
+</html>
