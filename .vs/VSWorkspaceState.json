@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\FullMVCProject"
+    "\\FullMVCProject",
+    "\\FullMVCProject\\XCodingGameReview",
+    "\\FullMVCProject\\XCodingGameReview\\Views",
+    "\\FullMVCProject\\XCodingGameReview\\Views\\Games"
   ],
-  "SelectedNode": "\\FullMVCProject\\FullMVCProject.sln",
+  "SelectedNode": "\\FullMVCProject\\XCodingGameReview\\App_Data",
   "PreviewInSolutionExplorer": false
 }
