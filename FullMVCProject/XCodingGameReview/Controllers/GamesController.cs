@@ -22,8 +22,6 @@ namespace XCodingGameReview.Controllers
                 DeveloperContext DeveloperDB = new DeveloperContext();
                 Developer developer = DeveloperDB.Developers.Find(id);
                 ViewData["id"] = id;
-                ViewData["name"] = developer.Name;
-                ViewData["description"] = developer.Description;
             }
             else
             {
